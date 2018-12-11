@@ -101,18 +101,21 @@ FeatureNameEntry FeatureNames[] =
 
 string Location::getName(bool i18n) const
 {
-    if (!i18n || i18nName == "") return name;
-    return i18nName;
+    if (i18n)
+        return name.i18n;
+    return name.text;
 }
 
 
 void Location::setName(const string& _name)
 {
-    name = _name;
-    i18nName = _(_name.c_str());
-    if (name == i18nName) i18nName = "";
+    name.set(_name);
 }
 
+void Location::setName(const Translatable &t)
+{
+    name = t;
+}
 
 Vector3f Location::getPosition() const
 {

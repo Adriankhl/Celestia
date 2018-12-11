@@ -13,6 +13,7 @@
 #include <string>
 #include <celengine/catentry.h>
 #include <celutil/color.h>
+#include <celutil/translatable.h>
 #include <Eigen/Core>
 
 class Selection;
@@ -25,6 +26,7 @@ public:
 
     std::string getName(bool i18n = false) const;
     void setName(const std::string&);
+    void setName(const Translatable&);
 
     Eigen::Vector3f getPosition() const;
     void setPosition(const Eigen::Vector3f&);
@@ -128,8 +130,7 @@ public:
 
  private:
     Body* parent{ nullptr };
-    std::string name;
-    std::string i18nName;
+    Translatable name;
     Eigen::Vector3f position{ Eigen::Vector3f::Zero() };
     float size{ 0.0f };
     float importance{ -1.0f };
