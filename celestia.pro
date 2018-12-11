@@ -41,7 +41,8 @@ UTIL_SOURCES = \
     src/celutil/formatnum.cpp \
     src/celutil/utf8.cpp \
     src/celutil/util.cpp \
-    src/celutil/timer.cpp
+    src/celutil/timer.cpp \
+    src/celutil/translatable.cpp
 
 UTIL_HEADERS = \
     src/celutil/bigfix.h \
@@ -54,6 +55,7 @@ UTIL_HEADERS = \
     src/celutil/reshandle.h \
     src/celutil/resmanager.h \
     src/celutil/timer.h \
+    src/celutil/translatable.h \
     src/celutil/utf8.h \
     src/celutil/util.h \
     src/celutil/watcher.h
