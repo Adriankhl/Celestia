@@ -9,8 +9,8 @@ struct Translatable
     typedef std::unordered_set<Translatable*> TrSet;
     typedef std::unordered_set<const char *> StrSet;
 
-    static TrSet m_trSet;
-    static StrSet m_strSet;
+    static TrSet *m_trSet;
+    static StrSet *m_strSet;
 
     Translatable();
     ~Translatable();
@@ -25,4 +25,7 @@ struct Translatable
 
     static void update();
     static const char *store(const std::string&);
+    
+    static void init();
+    static void cleanup();
 };
