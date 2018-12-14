@@ -12,16 +12,15 @@ struct Translatable
     static TrSet *m_trSet;
     static StrSet *m_strSet;
 
-    Translatable();
+    Translatable(const std::string & = std::string(), const char *d = nullptr);
     ~Translatable();
 
     std::string text;
     const char *domain = nullptr;
-    const char *context = nullptr;
     const char *i18n = nullptr;
 
     const char *translate();
-    void set(std::string t, const char *d = nullptr, const char *c = nullptr);
+    void set(std::string t, const char *d = nullptr);
 
     static void update();
     static const char *store(const std::string&);

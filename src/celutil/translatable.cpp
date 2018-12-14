@@ -4,9 +4,10 @@
 
 #include "translatable.h" 
 
-Translatable::Translatable()
+Translatable::Translatable(const std::string &s, const char *d)
 {
     m_trSet->insert(this);
+    set(s, d);
 }
 
 Translatable::~Translatable()
@@ -16,15 +17,14 @@ Translatable::~Translatable()
 
 const char *Translatable::translate()
 {
-    i18n = dgettext(domain, /*context,*/ text.data());
+    i18n = dgettext(domain, text.data());
     return i18n;
 }
 
-void Translatable::set(std::string t, const char *d, const char *c)
+void Translatable::set(std::string t, const char *d)
 {
     text = t;
     domain = d;
-    context = c;
     i18n = nullptr;
 }
 
